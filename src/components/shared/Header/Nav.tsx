@@ -27,8 +27,8 @@ export default function Nav() {
                 className={clsx(
                   "relative text-sm font-medium transition-colors",
                   isActive
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-primary",
+                    ? "text-secondary"
+                    : "text-accent hover:text-secondary",
                 )}
               >
                 {link.name}
@@ -39,7 +39,7 @@ export default function Nav() {
                     className="
                       absolute left-0 -bottom-1
                       h-0.5 w-full
-                      bg-primary
+                      bg-secondary
                       rounded-full
                     "
                   />

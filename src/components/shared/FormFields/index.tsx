@@ -3,6 +3,8 @@ import { IFormField, ValidationErrors } from "@/types/app";
 import TextField from "./TextField";
 import PasswordField from "./PasswordField";
 import NumberField from "./NumberField";
+import PhoneNumber from "./PhoneNumber";
+import RadioField from "./RadioButtons";
 
 interface Props extends IFormField {
   error: ValidationErrors;
@@ -10,7 +12,6 @@ interface Props extends IFormField {
 
 const FormFields = (props: Props) => {
   const { type } = props;
-  console.log(props.type.toLowerCase());
   const renderField = (): React.ReactNode => {
     if (type === InputTypes.EMAIL || type === InputTypes.TEXT) {
       return <TextField {...props} />;
@@ -23,7 +24,13 @@ const FormFields = (props: Props) => {
     if (type === InputTypes.NUMBER) {
       return <NumberField {...props} />;
     }
+    if (type === InputTypes.PHONE) {
+      return <PhoneNumber {...props} />;
+    }
 
+   if (type === InputTypes.RADIO) {
+     return <RadioField {...props} />;
+   }
     return <TextField {...props} />;
   };
 

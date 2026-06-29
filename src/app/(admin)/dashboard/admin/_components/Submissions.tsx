@@ -127,6 +127,14 @@ export default function Submissions() {
                   </div>
                 ))}
               </div>
+              <div className="mt-4 grid gap-2">
+                <div className="flex justify-between text-sm border-b pb-1">
+                  <span className="text-muted-foreground">تاريخ تسجيل</span>
+                  <span className="font-medium">
+                    {formatDate(new Date(lead.createdAt))}
+                  </span>
+                </div>
+              </div>
             </div>
           );
         })}
@@ -168,3 +176,14 @@ export default function Submissions() {
     </div>
   );
 }
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(date);
+};

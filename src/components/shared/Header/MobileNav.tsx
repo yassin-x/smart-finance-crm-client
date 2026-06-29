@@ -24,7 +24,7 @@ export default function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger className="md:hidden">
-        <MenuIcon className="w-5 h-5 text-foreground" />
+        <MenuIcon className="w-5 h-5 text-secondary" />
       </SheetTrigger>
       <SheetContent
         side="left"

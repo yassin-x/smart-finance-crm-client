@@ -117,7 +117,8 @@ export default function TextField({
         autoFocus={autoFocus}
         min={min || undefined}
         max={max || undefined}
-        name={name}
+        name={`${name}`}
+        autoComplete="off"
         id={name}
         readOnly={readOnly}
         className="focus:ring-0!"

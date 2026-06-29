@@ -79,12 +79,12 @@ export default function Hero() {
               variants={item}
               className="
                 text-2xl sm:text-3xl md:text-5xl
-                font-bold text-primary
+                font-bold text-secondary
                 mb-3 sm:mb-4
                 leading-tight
               "
             >
-              التمويل الإلكتروني
+              التمويل الذكي
             </motion.h1>
 
             {/* Subtitle */}

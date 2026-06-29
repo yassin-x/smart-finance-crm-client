@@ -162,6 +162,7 @@ export default function SingleProgram() {
                     render={({ field: controllerField }) => (
                       <FormFields
                         {...field}
+                        options={field.rules?.options}
                         value={controllerField.value}
                         onChange={controllerField.onChange}
                         min={field?.rules?.min}

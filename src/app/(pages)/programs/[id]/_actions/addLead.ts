@@ -13,7 +13,6 @@ export function useCreateLead() {
         answers: Record<string, any>[];
       };
     }) => {
-      console.log(payload);
       const res = await api.post("/lead", {
         ...payload.data,
         templateSlug: payload.slug,
