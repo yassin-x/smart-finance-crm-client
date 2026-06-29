@@ -106,6 +106,7 @@ export default function SingleProgram() {
           answers: Object.entries(formData)
             .filter(([key]) => !["name", "job", "phone"].includes(key))
             .map(([key, value]) => ({
+              name: key,
               question: fieldLabelMap[key] || key,
               answer: value,
             })),
