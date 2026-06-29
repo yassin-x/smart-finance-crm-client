@@ -98,7 +98,7 @@ export default function Submissions() {
 
             {/* Answers */}
             <div className="mt-4 grid gap-2">
-              {lead.submission.answers.map((ans: any, i: number) => (
+              {lead.submission.answers?.map((ans: any, i: number) => (
                 <div
                   key={i}
                   className="flex justify-between text-sm border-b pb-1"
