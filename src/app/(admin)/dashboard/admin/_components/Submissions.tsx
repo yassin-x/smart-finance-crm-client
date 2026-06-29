@@ -71,45 +71,65 @@ export default function Submissions() {
 
       {/* 🔵 Leads */}
       <div className="grid gap-4">
-        {leads.map((lead: any) => (
-          <div
-            key={lead.id}
-            className="rounded-2xl border bg-white/50 backdrop-blur p-4 shadow-sm hover:shadow-md transition"
-          >
-            {/* Top */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <div>
-                <h2 className="font-semibold text-lg">{lead.name}</h2>
-                <p className="text-sm text-muted-foreground">
-                  {lead.job} • {lead.phone}
-                </p>
+        {leads.map((lead: any) => {
+          let answers: any[] = [];
+
+          const raw = lead.submission?.answers;
+
+          if (Array.isArray(raw)) {
+            answers = raw;
+          } else if (typeof raw === "string") {
+            try {
+              const parsed = JSON.parse(raw);
+              if (Array.isArray(parsed)) {
+                answers = parsed;
+              }
+            } catch (e) {
+              console.error("Invalid JSON answers", e);
+            }
+          }
+          return (
+            <div
+              key={lead.id}
+              className="rounded-2xl border bg-white/50 backdrop-blur p-4 shadow-sm hover:shadow-md transition"
+            >
+              {/* Top */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <h2 className="font-semibold text-lg">{lead.name}</h2>
+                  <p className="text-sm text-muted-foreground">
+                    {lead.job} • {lead.phone}
+                  </p>
+                </div>
+
+                <Button
+                  size="sm"
+                  className="w-full sm:w-auto"
+                  onClick={() => {
+                    window.location.href = `tel:${lead.phone}`;
+                  }}
+                >
+                  📞 اتصال
+                </Button>
               </div>
 
-              <Button
-                size="sm"
-                className="w-full sm:w-auto"
-                onClick={() => {
-                  window.location.href = `tel:${lead.phone}`;
-                }}
-              >
-                📞 اتصال
-              </Button>
+              {/* Answers */}
+              <div className="mt-4 grid gap-2">
+                {answers.map((ans: any, i: number) => (
+                  <div
+                    key={i}
+                    className="flex justify-between text-sm border-b pb-1"
+                  >
+                    <span className="text-muted-foreground">
+                      {ans.question}
+                    </span>
+                    <span className="font-medium">{ans.answer}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-
-            {/* Answers */}
-            <div className="mt-4 grid gap-2">
-              {lead.submission.answers?.map((ans: any, i: number) => (
-                <div
-                  key={i}
-                  className="flex justify-between text-sm border-b pb-1"
-                >
-                  <span className="text-muted-foreground">{ans.question}</span>
-                  <span className="font-medium">{ans.answer}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* 🔵 Pagination */}
