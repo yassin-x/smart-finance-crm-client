@@ -1,0 +1,43 @@
+export type ValidationErrors =
+  | {
+      [key: string]: string[];
+    }
+  | undefined;
+
+export interface IOption {
+  label: string;
+  value: string;
+}
+export interface IFormField {
+  name: string;
+  label?: string;
+  type:
+    | "text"
+    | "email"
+    | "password"
+    | "number"
+    | "date"
+    | "time"
+    | "datetime-local"
+    | "checkbox"
+    | "radio"
+    | "select"
+    | "hidden"
+    | "textarea"
+    | "phone";
+  placeholder?: string;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  options?: IOption[];
+  id?: string;
+  checked?: boolean;
+  defaultValue?: string;
+  readOnly?: boolean;
+  required?: boolean;
+  desc?: string;
+  min?: number;
+  max?: number;
+}
+export interface IFormFieldsVariables {
+  slug: string;
+}
