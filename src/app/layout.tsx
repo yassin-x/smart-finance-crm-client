@@ -43,7 +43,7 @@ export default function RootLayout({
             closeButton={true}
           />
         </ReactQueryProvider>
-        {/* <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="afterInteractive">
           {`
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -66,7 +66,7 @@ export default function RootLayout({
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=2735961770130265&ev=PageView&noscript=1"
           />
-        </noscript> */}
+        </noscript>
       </body>
     </html>
   );
