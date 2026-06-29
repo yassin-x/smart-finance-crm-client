@@ -46,7 +46,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import useFormFields from "./_hooks/useFormFields";
 import { Form } from "@/constants/enums";
 import { useProgramTemplate } from "./_actions/getTemplate";
@@ -58,7 +58,7 @@ import { useForm, Controller } from "react-hook-form";
 
 export default function SingleProgram() {
   const slug = usePathname().split("/").pop();
-
+  const router = useRouter();
   const { mutate, isPending } = useCreateLead();
 
   const { getFormFields } = useFormFields({
@@ -115,6 +115,7 @@ export default function SingleProgram() {
       {
         onSuccess: () => {
           localStorage.setItem("success_lead", "true");
+          router.replace("/programs/thanks");
           toast.success("تم الإرسال بنجاح");
           reset();
         },
