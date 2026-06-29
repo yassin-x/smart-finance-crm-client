@@ -3,6 +3,8 @@ import { Readex_Pro } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const readex = Readex_Pro({
   subsets: ["latin", "arabic"],
@@ -29,6 +31,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ReactQueryProvider>
+          <Analytics />
+          <SpeedInsights />
           {children}
           <Toaster
             richColors
