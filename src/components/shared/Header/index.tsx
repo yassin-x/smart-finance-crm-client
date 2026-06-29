@@ -8,35 +8,9 @@ import { easeOut } from "motion";
 import { buttonVariants } from "@/components/ui/button";
 import MobileNav from "./MobileNav";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(true);
 
-  useEffect(() => {
-    let observer: IntersectionObserver;
-
-    const initObserver = () => {
-      const section = document.getElementById("why-us");
-      if (!section) {
-        requestAnimationFrame(initObserver);
-        return;
-      }
-
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          setIsDark(!entry.isIntersecting);
-        },
-        { threshold: 0.3 },
-      );
-
-      observer.observe(section);
-    };
-
-    initObserver();
-
-    return () => observer?.disconnect();
-  }, []);
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 px-8 pt-4">
