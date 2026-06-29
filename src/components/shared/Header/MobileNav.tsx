@@ -17,7 +17,7 @@ export default function MobileNav() {
 
   const links = [
     { name: "الرئيسية", href: "/" },
-    { name: "من نحن", href: "#why-us" },
+    { name: "من نحن", href: "/#why-us" },
     { name: "برامجنا", href: "/programs" },
   ];
 

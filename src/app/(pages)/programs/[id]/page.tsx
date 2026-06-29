@@ -113,6 +113,7 @@ export default function SingleProgram() {
       },
       {
         onSuccess: () => {
+          localStorage.setItem("success_lead", "true");
           toast.success("تم الإرسال بنجاح");
           reset();
         },
