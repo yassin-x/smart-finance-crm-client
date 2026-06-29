@@ -1,9 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { easeOut } from "motion";
+import { Link } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const container = {
   hidden: {},
@@ -123,16 +125,30 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
               >
-                <Button className="w-full">ابدأ الآن</Button>
+                <Link
+                  href="/programs"
+                  className={cn(
+                    buttonVariants({ variant: "default" }),
+                    "w-full",
+                  )}
+                >
+                  ابدأ الآن
+                </Link>
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
               >
-                <Button variant="outline" className="w-full">
-                  اعرف أكثر
-                </Button>
+                <Link
+                  href="/programs"
+                  className={cn(
+                    buttonVariants({ variant: "default" }),
+                    "w-full",
+                  )}
+                >
+                  اعرف اكثر
+                </Link>
               </motion.div>
             </motion.div>
           </div>
