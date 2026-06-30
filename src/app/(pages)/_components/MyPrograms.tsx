@@ -101,7 +101,7 @@ export default function MyPrograms() {
       </div>
 
       {/* List */}
-      <div className="mt-12 flex flex-col gap-4">
+      <div className="mt-8 sm:mt-12 flex flex-col gap-4">
         {isLoading
           ? Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="h-24 rounded-xl bg-muted animate-pulse" />
@@ -109,29 +109,36 @@ export default function MyPrograms() {
           : templates.map((program, index) => (
               <div
                 key={program.id}
-                className="group relative flex items-center justify-between gap-6 p-5 rounded-xl border bg-background hover:bg-secondary/40 transition-all duration-300"
+                className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 p-4 sm:p-5 rounded-xl border bg-background hover:bg-secondary/40 transition-all duration-300 overflow-hidden"
               >
                 {/* Accent Line */}
                 <div className="absolute right-0 top-0 h-full w-1 bg-primary rounded-full opacity-60 group-hover:opacity-100 transition" />
 
-                {/* Index (optional visual hierarchy) */}
-                <div className="text-3xl font-bold text-muted-foreground/30 group-hover:text-primary/40 transition">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
+                {/* Index + Content row (mobile) */}
+                <div className="flex items-start gap-3 sm:gap-6 flex-1 min-w-0">
+                  {/* Index */}
+                  <div className="text-2xl sm:text-3xl font-bold text-muted-foreground/30 group-hover:text-primary/40 transition shrink-0">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
 
-                {/* Content */}
-                <div className="flex-1 flex flex-col gap-1">
-                  <h3 className="text-lg font-semibold group-hover:text-primary transition">
-                    {program.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="flex-1 min-w-0 flex flex-col gap-1">
+                    <h3 className="text-base sm:text-lg font-semibold group-hover:text-primary transition wrap-break-words">
+                      {program.title}
+                    </h3>
 
-                  <p className="text-sm text-muted-foreground line-clamp-2">
-                    {program.desc}
-                  </p>
+                    <p className="text-sm text-muted-foreground line-clamp-2 wrap-break-words">
+                      {program.desc}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Action */}
-                <Button asChild variant="default">
+                <Button
+                  asChild
+                  variant="default"
+                  className="w-full sm:w-auto shrink-0"
+                >
                   <Link href={`/programs/${program.slug}`}>سجل الآن</Link>
                 </Button>
               </div>
