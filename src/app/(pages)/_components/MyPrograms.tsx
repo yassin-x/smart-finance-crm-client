@@ -127,7 +127,7 @@ export default function MyPrograms() {
                       {program.title}
                     </h3>
 
-                    <p className="text-sm text-muted-foreground line-clamp-2 wrap-break-words">
+                    <p className="text-sm text-muted-foreground line-clamp-4 wrap-break-words">
                       {program.desc}
                     </p>
                   </div>
