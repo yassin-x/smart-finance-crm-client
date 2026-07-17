@@ -4,7 +4,7 @@ import React from "react";
 import { useLeads } from "../_actions/getLeads";
 
 export default function Analytics() {
-  const { data, isLoading } = useLeads();
+  const { data, isLoading } = useLeads(1, 1000);
 
   const leads = data?.data ?? [];
 
