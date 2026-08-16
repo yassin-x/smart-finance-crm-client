@@ -9,7 +9,7 @@ export function usePrograms() {
       const res = await api.get("/template");
       return res.data;
     },
-    staleTime: 1000 * 60 * 5,
+    staleTime: 0,
     gcTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
     retry: false,
