@@ -6,11 +6,7 @@ export function useProgramTemplate(slug: string) {
   return useQuery({
     queryKey: queryKeys.programs.detail(slug),
     queryFn: async () => {
-      const res = await api.get(`/template`, {
-        params: {
-          slug,
-        },
-      });
+      const res = await api.get(`/template/one/${slug}`);
       return res.data;
     },
     staleTime: 1000 * 60 * 5,
