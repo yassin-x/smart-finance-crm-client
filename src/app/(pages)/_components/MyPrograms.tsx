@@ -74,7 +74,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePrograms } from "@/app/(admin)/dashboard/admin/programs/_actions/getPrograms";
+import { usePrograms } from "@/app/(pages)/_actions/getPrograms";
 import { Button } from "@/components/ui/button";
 
 type Program = {
@@ -127,7 +127,7 @@ export default function MyPrograms() {
                       {program.title}
                     </h3>
 
-                    <p className="text-sm text-muted-foreground line-clamp-2 wrap-break-words">
+                    <p className="text-sm text-muted-foreground line-clamp-4 wrap-break-words">
                       {program.desc}
                     </p>
                   </div>
